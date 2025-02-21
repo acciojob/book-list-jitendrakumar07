@@ -18,16 +18,17 @@
       
       const isbnCell = document.createElement("td");
       isbnCell.textContent = isbn;
+      row.appendChild(isbnCell);
       
+      const deleteCell = document.createElement("td");
       const clearButton = document.createElement("button");
       clearButton.textContent = "Clear";
       clearButton.classList.add("delete", "btn", "btn-danger", "btn-sm");
       clearButton.addEventListener("click", function() {
         row.remove();
       });
-      
-      isbnCell.appendChild(clearButton);
-      row.appendChild(isbnCell);
+      deleteCell.appendChild(clearButton);
+      row.appendChild(deleteCell);
       
       document.getElementById("book-list").appendChild(row);
       
