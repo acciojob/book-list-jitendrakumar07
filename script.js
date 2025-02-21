@@ -1,20 +1,37 @@
 //your JS code here. If required.
- <div class="container">
-    <h1>MyBookList</h1>
-    <div class="form-group">
-      <input type="text" id="title" class="form-control" placeholder="Book Title">
-      <input type="text" id="author" class="form-control" placeholder="Author">
-      <input type="text" id="isbn" class="form-control" placeholder="ISBN Number">
-      <button id="submit" class="btn btn-primary">Submit</button>
-    </div>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Author</th>
-          <th>ISBN#</th>
-        </tr>
-      </thead>
-      <tbody id="book-list">
-      </tbody>
-    </table>
+ document.getElementById("submit").addEventListener("click", function(e) {
+      e.preventDefault();
+      
+      const title = document.getElementById("title").value;
+      const author = document.getElementById("author").value;
+      const isbn = document.getElementById("isbn").value;
+      
+      const row = document.createElement("tr");
+      
+      const titleCell = document.createElement("td");
+      titleCell.textContent = title;
+      row.appendChild(titleCell);
+      
+      const authorCell = document.createElement("td");
+      authorCell.textContent = author;
+      row.appendChild(authorCell);
+      
+      const isbnCell = document.createElement("td");
+      isbnCell.textContent = isbn;
+      
+      const clearButton = document.createElement("button");
+      clearButton.textContent = "Clear";
+      clearButton.classList.add("delete", "btn", "btn-danger", "btn-sm");
+      clearButton.addEventListener("click", function() {
+        row.remove();
+      });
+      
+      isbnCell.appendChild(clearButton);
+      row.appendChild(isbnCell);
+      
+      document.getElementById("book-list").appendChild(row);
+      
+      document.getElementById("title").value = "";
+      document.getElementById("author").value = "";
+      document.getElementById("isbn").value = "";
+    });

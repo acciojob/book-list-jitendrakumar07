@@ -1,3 +1,7 @@
 /*  your css code here. If applicable */
- .form-group input {
-      margin-bottom: 10px;
+  .form-group {
+      margin: 20px 0;
+    }
+    .delete {
+      margin-left: 10px;
+    }
